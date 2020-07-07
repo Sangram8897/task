@@ -3,6 +3,6 @@ import ErrorReducer from './ErrorReducer';
 import MoviesReducer from './MoviesReducer';
 const rootReducer = combineReducers({
   ErrorReducer,
-  MoviesReducer,
+  MoviesReducer
 });
 export default rootReducer;
