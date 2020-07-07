@@ -5,9 +5,17 @@ export default function MoviesListItem({ movie, navigation }) {
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('ViewMovie',{ movieId: movie.id,})}
-      style={{ flex: 1, padding: 10, flexDirection: 'row' }}>
-
-  <Text style={styles.titleText}>{movie.title}</Text>
+      style={{ flex: 1, padding: 10, flexDirection: 'row' ,alignItems:'center'}}>
+<Image
+                    resizeMode='stretch'
+                    source={{ uri: `https://image.tmdb.org/t/p/w500${movie.poster_path}` }}
+                    style={{
+                        width: 60,
+                        height: 60,
+                        marginRight:15
+                    }}
+                />
+  <Text style={styles.titleText} numberOfLines={1}>{movie.title}</Text>
     </TouchableOpacity>
   )
 }

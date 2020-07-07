@@ -68,8 +68,7 @@ export const get_movie_details = movie_id => async dispatch => {
     if (result.status === 200) {
 
         const res = await result.json();
-        console.warn('movie_data',res)
-        dispatch({ type: TAG.GETMOVIE, movie: res });
+        return res
 
     } else {
         errorHandler(result);
