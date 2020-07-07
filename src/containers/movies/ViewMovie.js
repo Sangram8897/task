@@ -8,7 +8,7 @@ export default function ViewMovie(props) {
     const { movieId } = props.route.params;
     const dispatch = useDispatch();
     useEffect(()=>{
-        get_movie_details();
+        get_movies_data();
     },[])
     get_movies_data=async()=>{
         await dispatch(get_movie_details(movieId));
