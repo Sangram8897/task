@@ -1,11 +1,3 @@
-const NAME = 'MOVIES';
-export const TAG = {
-    LOADING: `${NAME}/LOADING`,
-    GETALLGENRE: `${NAME}/GETALLGENRE`,
-    GETALLMOVIES: `${NAME}/GETALLMOVIES`,
-    GETMOVIE: `${NAME}/GETMOVIE`,
-};
-
 const getDefaultState = () => ({
     movies: null,
     genre: null,
@@ -19,17 +11,14 @@ export default function (state = getDefaultState(), action) {
     }
     switch (action.type) {
 
-        case TAG.LOADING:
+        case 'NOW_PLAYING_MOVIES_LOADING':
             return {
+                ...state,
                 loading: true
             };
 
-        case TAG.GETALLGENRE:
-            return {
-                ...state,
-                genre: action.genres,
-            };
-        case TAG.GETALLMOVIES:
+
+        case 'NOW_PLAYING_MOVIES_LOADED':
             return {
                 ...state,
                 movies: action.movies,

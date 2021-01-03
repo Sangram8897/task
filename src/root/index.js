@@ -6,8 +6,8 @@ import { Provider } from 'react-redux'
 import store from 'store/store/configureStore';
 
 import Color from 'themes/Color';
-import Movies from '../containers/movies';
 import ViewMovie from '../containers/movies/ViewMovie';
+import TabNavigator from './TabNavigator';
 
 
 
@@ -28,24 +28,26 @@ export default function App() {
                             fontSize: 18,
                             fontFamily: 'Poppins-Medium',
                         },
-                        headerShown: true,
+                        headerShown: false,
                         gestureEnabled: false
                     }}
                 >
                     <>
                         <Stack.Screen
-                            name="Movies"
-                            options={{ title: 'Movies' }}
-                            component={Movies}
-                            //options={{ headerShown: false }}
+                            name="TabNavigator"
+                            options={{ title: 'TabNavigator' }}
+                            component={TabNavigator}
+                            options={{ headerShown: false }}
                         />
+
+
                         <Stack.Screen
                             name="ViewMovie"
-                            options={{ title: 'ViewMovie' }}
+
                             component={ViewMovie}
-                            //options={{ headerShown: false }}
+                            options={{ headerShown: true, title: '' }}
                         />
-                
+
                     </>
 
                 </Stack.Navigator>

@@ -5,12 +5,11 @@ import MoviesListItem from './MoviesListItem'
 import IsEmpty from '../../utils/IsEmpty';
 
 export default function MoviesList(props) {
-    const dispatch = useDispatch();
     const [_movies, set_movies] = useState([]);
 
-    const movies_data = useSelector(state => state.MoviesReducer.movies);
+    const movies_data = props.movies_data;
     useEffect(() => {
-        if (movies_data == null) {
+        if (movies_data == null || movies_data == undefined) {
             return;
         }
         set_movies(movies_data);
@@ -19,7 +18,7 @@ export default function MoviesList(props) {
 
     return (
         <View>
-           {!IsEmpty(_movies) && <FlatList
+            {!IsEmpty(_movies) && <FlatList
                 style={{ marginTop: 8 }}
                 data={_movies}
                 renderItem={({ item }) =>
